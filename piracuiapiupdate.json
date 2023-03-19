@@ -1,17 +1,7 @@
 [
   {
-    "descricao": "ALMOÇO  DO DIA",
-     "local":{
-      "nome": "LOJA1",
-       "imagem": "TODO"
-     },
-    "prato1":{
-      "nome": "FEIJOADA",
-      "imagem": "TODO"
-    },
-    "prato2":{
-      "nome": "PIRACUI TORRADO",
-      "imagem": "TODO"
-    }
-  }  
+    "nome": "ALMOÇO  DO DIA",
+    "imagem": "TODO"
+     }  
+
 ]
