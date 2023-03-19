@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Restaurante>> call, Throwable t) {
 
+                erroNaApi();
+
             }
         });
 
