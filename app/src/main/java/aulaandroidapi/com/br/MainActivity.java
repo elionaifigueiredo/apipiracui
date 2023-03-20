@@ -5,11 +5,14 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
+import aulaandroidapi.com.br.adapter.RestauranteAdpater;
 import aulaandroidapi.com.br.databinding.ActivityMainBinding;
 import aulaandroidapi.com.br.domain.GitPageApi;
 import aulaandroidapi.com.br.modal.Restaurante;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private GitPageApi myapi;
+    private RecyclerView.Adapter RestauranteAdpater;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void listaDadosDaApi() {
+        //Tamanho fixo do recicleView
+        binding.recicleviewId.setHasFixedSize(true);
+        // adiciona um layout basico no caso neste mai activity
+        binding.recicleviewId.setLayoutManager(new LinearLayoutManager(this));
+
+
+
 
         myapi.getRestaurante().enqueue(new Callback<List<Restaurante>>() {
             @Override
@@ -51,7 +62,12 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     List<Restaurante> lista = response.body();
                     Log.i("PIRACUI", "Deu tudo certo graças a Deus.." + lista.size());
-                    Snackbar.make(binding.txtViewId,"Tudo certo",Snackbar.LENGTH_LONG).show();
+
+                    // adiciona a lista do restaurante no adpater
+                    RestauranteAdpater = new RestauranteAdpater(lista);
+                    // Adiciona o adapater no recicle view da Main Activity
+                    binding.recicleviewId.setAdapter(RestauranteAdpater);
+
                 } else {
                     erroNaApi();
                 }
