@@ -1,9 +1,12 @@
 package aulaandroidapi.com.br.adapter;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -33,8 +36,16 @@ public class RestauranteAdpater extends RecyclerView.Adapter<RestauranteAdpater.
         // a parti do viewHolder , qual o elemento que esta na lista e adiciona no layout para ser exibida
         Restaurante restaurante = restauranteList.get(position);
 
+        // necessita de um contexto ou seja contexto da aplicação para o glide
+        Context context = holder.itemView.getContext();
+
+
         // nome do restauratne sendo atribuido no text view do laytout Item
         holder.binding.textViewId.setText(restaurante.getNome());
+        // necessita de um contexto ou seja contexto da aplicação
+        // load tem que ser uma url
+        // into() carrega a imagem aonde
+        Glide.with(context).load(restaurante.getImagem()).into(holder.binding.imageViewId);
     }
 
     @Override
