@@ -53,9 +53,32 @@ public class MainActivity extends AppCompatActivity {
         // adiciona um layout basico no caso neste mai activity
         binding.recicleviewId.setLayoutManager(new LinearLayoutManager(this));
 
+        // este metodo foi extraido
+        buscafromApi();
 
 
+        // atualizando api com swiperrefresh na tela
+        refreshdaApi();
 
+
+    }
+
+    private void refreshdaApi() {
+        //utilizando o refresh da API
+        // quando alguem realizar o swiperrefresh utiliza esse metodo
+        binding.swiperfreshId.setOnRefreshListener(this::refreshdaApi);
+        // com esse metodo ja funciona mais o icone fica rodando em loop
+
+
+    }
+
+    private void buscafromApi() {
+
+        // coloca o swiperreresh com ativado (true)
+        binding.swiperfreshId.setRefreshing(true);
+
+
+        // inicia o app e carrega api
         myapi.getRestaurante().enqueue(new Callback<List<Restaurante>>() {
             @Override
             public void onResponse(Call<List<Restaurante>> call, Response<List<Restaurante>> response) {
@@ -71,16 +94,20 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     erroNaApi();
                 }
+
+                // quando estiver atualizado o swiperrefresh fica parado (false)
+                binding.swiperfreshId.setRefreshing(false);
             }
 
             @Override
             public void onFailure(Call<List<Restaurante>> call, Throwable t) {
 
                 erroNaApi();
+                // se de erro o swiperrefresh fica parado (false)
+                binding.swiperfreshId.setRefreshing(false);
 
             }
         });
-
     }
 
     private void erroNaApi() {
