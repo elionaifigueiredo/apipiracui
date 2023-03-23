@@ -1,12 +1,7 @@
 [
   {
   "descricao":"Cantinho da Lelê !",
-    "local":{
-            "nome":"Rua 02 de Maio 100 Bairro da Paz"
-            "imagem":"TODO"
-             },
-    
-    "perfume":{
+     "perfume":{
           "nome": "BOTICARIO",
           "imagem":"https://images.tcdn.com.br/img/img_prod/548128/glamour_deo_colonia_perfumaria_o_boticario_166_1_cf4cd835eb85c905dc25609641f2e226.jpg" 
             }   
