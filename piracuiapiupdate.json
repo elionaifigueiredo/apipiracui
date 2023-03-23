@@ -1,14 +1,15 @@
 [
+  {
   "descricao":"Cantinho da Lelê !",
-  "local":{
-          "nome":"Rua 02 de Maio 100 Bairro da Paz"
-          "imagem":"TODO"
-  },
-        "perfume":{
+    "local":{
+            "nome":"Rua 02 de Maio 100 Bairro da Paz"
+            "imagem":"TODO"
+             },
+    "perfume":{
           "nome": "BOTICARIO",
           "imagem":"https://images.tcdn.com.br/img/img_prod/548128/glamour_deo_colonia_perfumaria_o_boticario_166_1_cf4cd835eb85c905dc25609641f2e226.jpg" 
-        },
-         "roupa":{
+            },
+     "roupa":{
            "nome": "HERING",
            "imagem":"https://s2.glbimg.com/Yz0Fl-VAfRy9hi0pD8jRG4kd-GQ=/0x0:1000x944/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_f035dd6fd91c438fa04ab718d608bbaa/internal_photos/bs/2021/o/i/uVrmuZQbaIrquCLealIQ/hering.jpeg"
          }
