@@ -1,13 +1,16 @@
 [
-  "descricao"{
-    "nome":"Cantinho da Lelê !",  
+  "descricao":"Cantinho da Lelê !",
+  "local":{
+          "nome":"Rua 02 de Maio 100 Bairro da Paz"
+          "imagem":"TODO"
+  },
         "perfume":{
           "nome": "BOTICARIO",
-          "imagem": "https://instagram.fpll8-1.fna.fbcdn.net/v/t51.2885-15/117840839_865490953987900_7281458524753861039_n.jpg?stp=dst-jpg_e35_s640x640_sh0.08&_nc_ht=instagram.fpll8-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=QK2WCUFujIAAX9dOkVJ&edm=AP_V10EBAAAA&ccb=7-5&oh=00_AfDnCRYBjJ6WGIjZy6i-jxLlwW8_M19kDjl41tVDYFXZZA&oe=641E752D&_nc_sid=4f375e"
-         },
+          "imagem":"https://images.tcdn.com.br/img/img_prod/548128/glamour_deo_colonia_perfumaria_o_boticario_166_1_cf4cd835eb85c905dc25609641f2e226.jpg" 
+        },
          "roupa":{
-           "nome": "hering",
-           "imagem": "https://s2.glbimg.com/pqdHeTsFSjfpyCLO_KjhJmT6S18=/0x0:1280x800/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2022/A/f/HcRMf3Qbe8eFZqYGYwVg/peixe-assado-no-forno.jpg"
+           "nome": "HERING",
+           "imagem":"https://s2.glbimg.com/Yz0Fl-VAfRy9hi0pD8jRG4kd-GQ=/0x0:1000x944/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_f035dd6fd91c438fa04ab718d608bbaa/internal_photos/bs/2021/o/i/uVrmuZQbaIrquCLealIQ/hering.jpeg"
          }
     }
 ]
