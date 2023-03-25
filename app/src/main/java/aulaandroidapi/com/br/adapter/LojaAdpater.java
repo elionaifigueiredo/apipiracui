@@ -1,5 +1,6 @@
 package aulaandroidapi.com.br.adapter;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -10,16 +11,18 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import aulaandroidapi.com.br.Detalhe;
+import aulaandroidapi.com.br.DetalheApp;
 import aulaandroidapi.com.br.databinding.ItemBinding;
-import aulaandroidapi.com.br.modal.Restaurante;
+import aulaandroidapi.com.br.modal.Loja;
 
-public class RestauranteAdpater extends RecyclerView.Adapter<RestauranteAdpater.ViewHolder> {
-    private List<Restaurante> restauranteList;
+public class LojaAdpater extends RecyclerView.Adapter<LojaAdpater.ViewHolder> {
+    private List<Loja> lojaList;
     private ItemBinding binding;
 
     // recebe a lista como paramentro
-    public RestauranteAdpater(List<Restaurante> restauranteList) {
-        this.restauranteList = restauranteList;
+    public LojaAdpater(List<Loja> lojaList) {
+        this.lojaList = lojaList;
     }
 
     @NonNull
@@ -34,24 +37,32 @@ public class RestauranteAdpater extends RecyclerView.Adapter<RestauranteAdpater.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // a parti do viewHolder , qual o elemento que esta na lista e adiciona no layout para ser exibida
-        Restaurante restaurante = restauranteList.get(position);
+        Loja loja = lojaList.get(position);
 
         // necessita de um contexto ou seja contexto da aplicação para o glide
         Context context = holder.itemView.getContext();
 
 
-        // nome do restauratne sendo atribuido no text view do laytout Item
-        holder.binding.textViewId.setText(restaurante.getNome());
+        // nome da Loja sendo atribuido no text view do laytout Item
+        holder.binding.textViewId.setText(loja.getPerfume().getNome());
         // necessita de um contexto ou seja contexto da aplicação
         // load tem que ser uma url
         // into() carrega a imagem aonde
-        Glide.with(context).load(restaurante.getImagem()).into(holder.binding.imageViewId);
+        Glide.with(context).load(loja.getPerfume().getImagem()).into(holder.binding.imageViewId);
+
+        // CHAMA A TELA ACTIVITY
+        holder.itemView.setOnClickListener(view ->{
+            Intent intent = new Intent(context, DetalheApp.class);
+            intent.putExtra(DetalheApp.Extras.LOJA, loja);
+            context.startActivity(intent);
+        });
+
     }
 
     @Override
     public int getItemCount() {
         // pega o tamanho da lista
-        return restauranteList.size();
+        return lojaList.size();
     }
 
     //paramentro generico

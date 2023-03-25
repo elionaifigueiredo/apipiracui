@@ -12,10 +12,10 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
-import aulaandroidapi.com.br.adapter.RestauranteAdpater;
+import aulaandroidapi.com.br.adapter.LojaAdpater;
 import aulaandroidapi.com.br.databinding.ActivityMainBinding;
 import aulaandroidapi.com.br.domain.GitPageApi;
-import aulaandroidapi.com.br.modal.Restaurante;
+import aulaandroidapi.com.br.modal.Loja;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private GitPageApi myapi;
-    private RecyclerView.Adapter RestauranteAdpater;
+    private RecyclerView.Adapter LojaAdpater;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,9 +67,8 @@ public class MainActivity extends AppCompatActivity {
     private void refreshdaApi() {
         //utilizando o refresh da API
         // quando alguem realizar o swiperrefresh utiliza esse metodo
-        binding.swiperfreshId.setOnRefreshListener(this::refreshdaApi);
-        // com esse metodo ja funciona mais o icone fica rodando em loop
-
+            binding.swiperfreshId.setOnRefreshListener(this::buscafromApi);
+             Snackbar.make(binding.getRoot(), "Atualizando...", Snackbar.LENGTH_LONG).show();
 
     }
 
@@ -79,17 +79,17 @@ public class MainActivity extends AppCompatActivity {
 
 
         // inicia o app e carrega api
-        myapi.getRestaurante().enqueue(new Callback<List<Restaurante>>() {
+        myapi.getLoja().enqueue(new Callback<List<Loja>>() {
             @Override
-            public void onResponse(Call<List<Restaurante>> call, Response<List<Restaurante>> response) {
+            public void onResponse(Call<List<Loja>> call, Response<List<Loja>> response) {
                 if (response.isSuccessful()) {
-                    List<Restaurante> lista = response.body();
+                    List<Loja> lista = response.body();
                     Log.i("PIRACUI", "Deu tudo certo graças a Deus.." + lista.size());
 
                     // adiciona a lista do restaurante no adpater
-                    RestauranteAdpater = new RestauranteAdpater(lista);
+                    LojaAdpater = new LojaAdpater(lista);
                     // Adiciona o adapater no recicle view da Main Activity
-                    binding.recicleviewId.setAdapter(RestauranteAdpater);
+                    binding.recicleviewId.setAdapter(LojaAdpater);
 
                 } else {
                     erroNaApi();
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Restaurante>> call, Throwable t) {
+            public void onFailure(Call<List<Loja>> call, Throwable t) {
 
                 erroNaApi();
                 // se de erro o swiperrefresh fica parado (false)

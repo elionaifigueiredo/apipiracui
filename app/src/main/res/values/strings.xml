@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Cantinho da Lelê</string>
+    <string name="descricao">Descrição da APi</string>
+    <string name="content_description_media">TEST1</string>
+    <string name="title">"Titulo "</string>
+    <string name="secondary_text">Segundo titulo</string>
+    <string name="supporting_text">Suporte</string>
+    <string name="action_1">Button 1</string>
+    <string name="action_2">Button 2</string>
 </resources>
